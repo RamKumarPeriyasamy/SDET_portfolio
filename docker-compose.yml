@@ -1,0 +1,35 @@
+services:
+  portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: sdet-portfolio
+    restart: unless-stopped
+    ports:
+      - "34444:80"
+    environment:
+      - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+  portfolio-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: sdet-portfolio-dev
+    restart: unless-stopped
+    ports:
+      - "3001:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    profiles:
+      - dev
