@@ -74,12 +74,22 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl leading-relaxed"
+            className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl leading-relaxed space-y-4"
           >
-            I am <span className="font-bold text-slate-900 dark:text-white">Ram Kumar Periyasamy</span>.
-            An SDET & SecOps Engineer bridging the gap between <span className="text-blue-500 dark:text-blue-400">code</span>, <span className="text-emerald-500 dark:text-emerald-400">quality</span>, and <span className="text-violet-500 dark:text-violet-400">security</span>.
-            <br className="hidden md:block" />
-            I don't just test software — I break it, secure it, and make it production-ready.
+            <p>
+              I am <span className="font-bold text-slate-900 dark:text-white">Ram Kumar Periyasamy</span>, an{' '}
+              <span className="font-bold text-slate-900 dark:text-white underline decoration-emerald-500 decoration-2 underline-offset-4">
+                SDET Engineer
+              </span>{' '}
+              passionate about building reliable, secure, and high-quality software systems.
+            </p>
+            <p className="text-base md:text-lg text-slate-500 dark:text-slate-400">
+              My expertise extends beyond test automation into{' '}
+              <span className="text-blue-500 dark:text-blue-400 font-semibold">DevOps</span> practices,{' '}
+              <span className="text-cyan-500 dark:text-cyan-400 font-semibold">CI/CD</span> pipeline engineering, containerization, infrastructure management, and{' '}
+              <span className="text-emerald-500 dark:text-emerald-400 font-semibold">security automation</span>. I focus on connecting quality engineering with modern{' '}
+              <span className="text-violet-500 dark:text-violet-400 font-semibold">DevOps</span> workflows to deliver efficient, scalable, and production-ready solutions.
+            </p>
           </motion.div>
 
           <motion.div
@@ -97,8 +107,9 @@ const Hero: React.FC = () => {
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <a
-              href="#resume"
-              className="group flex items-center justify-center gap-2 px-8 py-4 bg-white dark:bg-slate-900 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 font-bold rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+              href="/Ramkumar_Resume.pdf"
+              download="Ramkumar_P_QA_Engineer_SDET.pdf"
+              className="group flex items-center justify-center gap-2 px-8 py-4 bg-white dark:bg-slate-900 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 font-bold rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-all cursor-pointer"
             >
               <Download size={20} />
               Access Resume
@@ -206,28 +217,28 @@ const Hero: React.FC = () => {
         <motion.div
           animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[15%] right-[10%] flex items-center gap-2 bg-slate-900/30 backdrop-blur-sm px-3 py-1.5 rounded-full border border-emerald-500/10"
+          className="absolute top-[15%] right-[10%] flex items-center gap-2 bg-emerald-50/90 dark:bg-slate-900/30 backdrop-blur-sm px-3 py-1.5 rounded-full border border-emerald-200/90 dark:border-emerald-500/10 shadow-xs dark:shadow-none"
         >
-          <Shield className="w-3 h-3 text-emerald-500/60" />
-          <span className="text-[10px] font-mono text-emerald-500/60">ENCRYPTED</span>
+          <Shield className="w-3 h-3 text-emerald-600 dark:text-emerald-500/60" />
+          <span className="text-[10px] font-mono font-semibold tracking-wider text-emerald-700 dark:text-emerald-500/60">ENCRYPTED</span>
         </motion.div>
 
         <motion.div
           animate={{ y: [0, 8, 0], rotate: [0, -3, 0] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute bottom-[25%] right-[5%] flex items-center gap-2 bg-slate-900/30 backdrop-blur-sm px-3 py-1.5 rounded-full border border-cyan-500/10"
+          className="absolute bottom-[25%] right-[5%] flex items-center gap-2 bg-cyan-50/90 dark:bg-slate-900/30 backdrop-blur-sm px-3 py-1.5 rounded-full border border-cyan-200/90 dark:border-cyan-500/10 shadow-xs dark:shadow-none"
         >
-          <Terminal className="w-3 h-3 text-cyan-500/60" />
-          <span className="text-[10px] font-mono text-cyan-500/60">TESTING</span>
+          <Terminal className="w-3 h-3 text-cyan-600 dark:text-cyan-500/60" />
+          <span className="text-[10px] font-mono font-semibold tracking-wider text-cyan-700 dark:text-cyan-500/60">TESTING</span>
         </motion.div>
 
         <motion.div
           animate={{ y: [0, -6, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute top-[40%] right-[3%] flex items-center gap-2 bg-slate-900/30 backdrop-blur-sm px-3 py-1.5 rounded-full border border-violet-500/10"
+          className="absolute top-[40%] right-[3%] flex items-center gap-2 bg-violet-50/90 dark:bg-slate-900/30 backdrop-blur-sm px-3 py-1.5 rounded-full border border-violet-200/90 dark:border-violet-500/10 shadow-xs dark:shadow-none"
         >
-          <div className="w-2 h-2 bg-violet-500/60 rounded-full animate-pulse" />
-          <span className="text-[10px] font-mono text-violet-500/60">MONITORING</span>
+          <div className="w-2 h-2 bg-violet-600 dark:bg-violet-500/60 rounded-full animate-pulse" />
+          <span className="text-[10px] font-mono font-semibold tracking-wider text-violet-700 dark:text-violet-500/60">MONITORING</span>
         </motion.div>
 
         {/* Subtle Glow */}

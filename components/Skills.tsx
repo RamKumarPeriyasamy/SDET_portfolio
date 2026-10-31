@@ -55,7 +55,7 @@ const Skills: React.FC = () => {
     }
   };
 
-  // Enhanced color schemes with gradients
+  // Enhanced color schemes with gradients for all skill domains
   const colorSchemes = [
     {
       primary: '#10b981',
@@ -63,29 +63,60 @@ const Skills: React.FC = () => {
       bg: 'rgba(16, 185, 129, 0.05)',
       glow: 'rgba(16, 185, 129, 0.4)',
       gradient: 'from-emerald-500/20 to-emerald-500/0'
-    }, // Emerald
-    {
-      primary: '#8b5cf6',
-      secondary: '#a78bfa',
-      bg: 'rgba(139, 92, 246, 0.05)',
-      glow: 'rgba(139, 92, 246, 0.4)',
-      gradient: 'from-violet-500/20 to-violet-500/0'
-    }, // Violet
+    }, // Emerald - Testing & Automation
     {
       primary: '#06b6d4',
       secondary: '#22d3ee',
       bg: 'rgba(6, 182, 212, 0.05)',
       glow: 'rgba(6, 182, 212, 0.4)',
       gradient: 'from-cyan-500/20 to-cyan-500/0'
-    },  // Cyan
+    },  // Cyan - DevOps & CI/CD
+    {
+      primary: '#8b5cf6',
+      secondary: '#a78bfa',
+      bg: 'rgba(139, 92, 246, 0.05)',
+      glow: 'rgba(139, 92, 246, 0.4)',
+      gradient: 'from-violet-500/20 to-violet-500/0'
+    }, // Violet - DevSecOps & Security
+    {
+      primary: '#3b82f6',
+      secondary: '#60a5fa',
+      bg: 'rgba(59, 130, 246, 0.05)',
+      glow: 'rgba(59, 130, 246, 0.4)',
+      gradient: 'from-blue-500/20 to-blue-500/0'
+    }, // Blue - Infrastructure & Cloud
+    {
+      primary: '#ec4899',
+      secondary: '#f472b6',
+      bg: 'rgba(236, 72, 153, 0.05)',
+      glow: 'rgba(236, 72, 153, 0.4)',
+      gradient: 'from-pink-500/20 to-pink-500/0'
+    }, // Pink - Monitoring & Observability
     {
       primary: '#f59e0b',
       secondary: '#fbbf24',
       bg: 'rgba(245, 158, 11, 0.05)',
       glow: 'rgba(245, 158, 11, 0.4)',
       gradient: 'from-amber-500/20 to-amber-500/0'
-    }, // Amber
+    }, // Amber - Programming Languages
+    {
+      primary: '#14b8a6',
+      secondary: '#2dd4bf',
+      bg: 'rgba(20, 184, 166, 0.05)',
+      glow: 'rgba(20, 184, 166, 0.4)',
+      gradient: 'from-teal-500/20 to-teal-500/0'
+    }, // Teal - Databases & Messaging
+    {
+      primary: '#6366f1',
+      secondary: '#818cf8',
+      bg: 'rgba(99, 102, 241, 0.05)',
+      glow: 'rgba(99, 102, 241, 0.4)',
+      gradient: 'from-indigo-500/20 to-indigo-500/0'
+    }, // Indigo - Frontend Technologies
   ];
+
+  const getColorScheme = (idx: number) => colorSchemes[idx % colorSchemes.length] || colorSchemes[0];
+  const currentScheme = getColorScheme(activeIndex);
 
   const [isMobile, setIsMobile] = useState(false);
 
@@ -151,7 +182,7 @@ const Skills: React.FC = () => {
     <section
       ref={containerRef}
       id="skills"
-      className="relative bg-slate-50 dark:bg-[#0a0a0a] min-h-[250vh] lg:min-h-[300vh]"
+      className="relative bg-slate-50 dark:bg-[#0a0a0a] min-h-[350vh] lg:min-h-[450vh]"
     >
       <div className="sticky top-0 h-[100dvh] flex flex-col justify-center overflow-hidden py-4 lg:py-0">
 
@@ -164,7 +195,7 @@ const Skills: React.FC = () => {
             }}
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] rounded-full blur-[120px]"
-            style={{ backgroundColor: colorSchemes[activeIndex].primary }}
+            style={{ backgroundColor: currentScheme.primary }}
           />
           <motion.div
             animate={{
@@ -173,14 +204,14 @@ const Skills: React.FC = () => {
             }}
             transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             className="absolute -bottom-[10%] -right-[10%] w-[40%] h-[40%] rounded-full blur-[120px]"
-            style={{ backgroundColor: colorSchemes[activeIndex].secondary }}
+            style={{ backgroundColor: currentScheme.secondary }}
           />
 
           {/* Animated grid */}
           <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.1]"
             style={{
-              backgroundImage: `linear-gradient(${colorSchemes[activeIndex].primary} 1px, transparent 1px),
-                                linear-gradient(90deg, ${colorSchemes[activeIndex].primary} 1px, transparent 1px)`,
+              backgroundImage: `linear-gradient(${currentScheme.primary} 1px, transparent 1px),
+                                linear-gradient(90deg, ${currentScheme.primary} 1px, transparent 1px)`,
               backgroundSize: '80px 80px',
               maskImage: 'radial-gradient(circle at center, black, transparent 80%)'
             }}
@@ -219,75 +250,78 @@ const Skills: React.FC = () => {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="lg:col-span-4 flex lg:flex-col gap-2 lg:gap-4 overflow-x-auto lg:overflow-x-visible pb-4 lg:pb-0 scrollbar-hide no-scrollbar"
+              className="lg:col-span-4 flex lg:flex-col gap-2 overflow-x-auto lg:overflow-y-auto lg:max-h-[600px] pb-4 lg:pb-0 scrollbar-hide no-scrollbar pr-1"
             >
-              {SKILL_CATEGORIES.map((category, index) => (
-                <motion.div
-                  key={category.title}
-                  ref={(el) => (categoryRefs.current[index] = el)}
-                  onClick={() => handleCategoryClick(index)}
-                  whileHover={{ x: 4 }}
-                  className={`relative p-3 lg:p-4 rounded-2xl cursor-pointer transition-all duration-500 overflow-hidden group flex-shrink-0 min-w-[160px] lg:min-w-0 ${activeIndex === index
-                    ? 'bg-white dark:bg-slate-800/40 shadow-2xl shadow-emerald-500/5'
-                    : 'hover:bg-slate-100/50 dark:hover:bg-slate-800/20'
-                    }`}
-                >
-                  {/* Active Indicator Background */}
-                  {activeIndex === index && (
-                    <motion.div
-                      layoutId="activeCategory"
-                      className="absolute inset-0 bg-gradient-to-r opacity-10 dark:opacity-20 z-0"
-                      style={{ backgroundImage: `linear-gradient(to right, ${colorSchemes[index].primary}, transparent)` }}
-                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                    />
-                  )}
+              {SKILL_CATEGORIES.map((category, index) => {
+                const scheme = getColorScheme(index);
+                return (
+                  <motion.div
+                    key={category.title}
+                    ref={(el) => (categoryRefs.current[index] = el)}
+                    onClick={() => handleCategoryClick(index)}
+                    whileHover={{ x: 4 }}
+                    className={`relative p-2.5 lg:p-3 rounded-2xl cursor-pointer transition-all duration-500 overflow-hidden group flex-shrink-0 min-w-[160px] lg:min-w-0 ${activeIndex === index
+                      ? 'bg-white dark:bg-slate-800/40 shadow-2xl shadow-emerald-500/5'
+                      : 'hover:bg-slate-100/50 dark:hover:bg-slate-800/20'
+                      }`}
+                  >
+                    {/* Active Indicator Background */}
+                    {activeIndex === index && (
+                      <motion.div
+                        layoutId="activeCategory"
+                        className="absolute inset-0 bg-gradient-to-r opacity-10 dark:opacity-20 z-0"
+                        style={{ backgroundImage: `linear-gradient(to right, ${scheme.primary}, transparent)` }}
+                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                      />
+                    )}
 
-                  <div className="relative z-10 flex items-center gap-3 lg:gap-4">
-                    {/* Icon with glow */}
-                    <div
-                      className={`relative p-2 lg:p-3 rounded-xl transition-all duration-500 ${activeIndex === index ? 'scale-110' : 'group-hover:scale-105'
-                        }`}
-                    >
-                      {activeIndex === index && (
-                        <motion.div
-                          layoutId="iconGlow"
-                          className="absolute inset-0 blur-md opacity-50 rounded-xl"
-                          style={{ backgroundColor: colorSchemes[index].primary }}
-                        />
-                      )}
-                      <div className="relative z-10" style={{ color: activeIndex === index ? colorSchemes[index].primary : 'inherit' }}>
-                        <category.icon size={20} className="lg:w-6 lg:h-6" strokeWidth={activeIndex === index ? 2.5 : 2} />
+                    <div className="relative z-10 flex items-center gap-3 lg:gap-4">
+                      {/* Icon with glow */}
+                      <div
+                        className={`relative p-2 lg:p-2.5 rounded-xl transition-all duration-500 ${activeIndex === index ? 'scale-110' : 'group-hover:scale-105'
+                          }`}
+                      >
+                        {activeIndex === index && (
+                          <motion.div
+                            layoutId="iconGlow"
+                            className="absolute inset-0 blur-md opacity-50 rounded-xl"
+                            style={{ backgroundColor: scheme.primary }}
+                          />
+                        )}
+                        <div className="relative z-10" style={{ color: activeIndex === index ? scheme.primary : 'inherit' }}>
+                          <category.icon size={20} className="lg:w-6 lg:h-6" strokeWidth={activeIndex === index ? 2.5 : 2} />
+                        </div>
                       </div>
-                    </div>
 
-                    {/* Text */}
-                    <div className="flex-1">
-                      <h3 className={`text-sm lg:text-base font-semibold transition-colors ${activeIndex === index
-                        ? 'text-slate-900 dark:text-white'
-                        : 'text-slate-600 dark:text-slate-400'
-                        }`}>
-                        {category.title}
-                      </h3>
-                      <p className={`text-[10px] lg:text-xs font-mono mt-0.5 transition-colors ${activeIndex === index
-                        ? 'text-slate-500 dark:text-slate-400'
-                        : 'text-slate-400 dark:text-slate-500'
-                        }`}>
-                        {category.skills.length} skills
-                      </p>
-                    </div>
+                      {/* Text */}
+                      <div className="flex-1 min-w-0">
+                        <h3 className={`text-sm lg:text-base font-semibold truncate transition-colors ${activeIndex === index
+                          ? 'text-slate-900 dark:text-white'
+                          : 'text-slate-600 dark:text-slate-400'
+                          }`}>
+                          {category.title}
+                        </h3>
+                        <p className={`text-[10px] lg:text-xs font-mono mt-0.5 transition-colors ${activeIndex === index
+                          ? 'text-slate-500 dark:text-slate-400'
+                          : 'text-slate-400 dark:text-slate-500'
+                          }`}>
+                          {category.skills.length} skills
+                        </p>
+                      </div>
 
-                    {/* Arrow - Desktop only */}
-                    <ChevronRight
-                      size={18}
-                      className={`hidden lg:block transition-all duration-300 ${activeIndex === index
-                        ? 'opacity-100 translate-x-0'
-                        : 'opacity-0 -translate-x-2'
-                        }`}
-                      style={{ color: colorSchemes[index].primary }}
-                    />
-                  </div>
-                </motion.div>
-              ))}
+                      {/* Arrow - Desktop only */}
+                      <ChevronRight
+                        size={18}
+                        className={`hidden lg:block transition-all duration-300 shrink-0 ${activeIndex === index
+                          ? 'opacity-100 translate-x-0'
+                          : 'opacity-0 -translate-x-2'
+                          }`}
+                        style={{ color: scheme.primary }}
+                      />
+                    </div>
+                  </motion.div>
+                );
+              })}
             </motion.div>
 
             {/* Skills Display - Right Side */}
@@ -321,14 +355,14 @@ const Skills: React.FC = () => {
                       <div
                         className="p-2 lg:p-3 rounded-2xl shadow-inner border border-white/10"
                         style={{
-                          backgroundColor: colorSchemes[activeIndex].bg,
-                          boxShadow: `0 0 20px ${colorSchemes[activeIndex].glow}`
+                          backgroundColor: currentScheme.bg,
+                          boxShadow: `0 0 20px ${currentScheme.glow}`
                         }}
                       >
                         {React.createElement(SKILL_CATEGORIES[activeIndex].icon, {
                           size: 24,
                           className: "lg:w-7 lg:h-7",
-                          style: { color: colorSchemes[activeIndex].primary }
+                          style: { color: currentScheme.primary }
                         })}
                       </div>
                       <div>
@@ -336,7 +370,7 @@ const Skills: React.FC = () => {
                           {SKILL_CATEGORIES[activeIndex].title}
                         </h3>
                         <div className="h-1 w-16 lg:w-20 rounded-full bg-gradient-to-r mt-1"
-                          style={{ backgroundImage: `linear-gradient(to right, ${colorSchemes[activeIndex].primary}, transparent)` }} />
+                          style={{ backgroundImage: `linear-gradient(to right, ${currentScheme.primary}, transparent)` }} />
                       </div>
                     </div>
                     <p className="text-sm lg:text-lg text-slate-600 dark:text-slate-400 font-medium leading-relaxed max-w-2xl">
@@ -359,7 +393,7 @@ const Skills: React.FC = () => {
                       opacity: { duration: 0.2 },
                       delay: 0.1
                     }}
-                    className="grid grid-cols-1 sm:grid-cols-2 gap-5"
+                    className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 max-h-[380px] overflow-y-auto pr-1 scrollbar-hide"
                   >
                     {SKILL_CATEGORIES[activeIndex].skills.map((skill, skillIndex) => (
                       <motion.div
@@ -382,7 +416,7 @@ const Skills: React.FC = () => {
                             rotateX: 2,
                             rotateY: -2
                           }}
-                          className={`relative group p-4 lg:p-5 rounded-2xl border transition-all duration-300 backdrop-blur-sm overflow-hidden ${hoveredSkill === skill
+                          className={`relative group p-3.5 lg:p-4 rounded-2xl border transition-all duration-300 backdrop-blur-sm overflow-hidden ${hoveredSkill === skill
                             ? 'border-transparent shadow-2xl'
                             : 'border-slate-200 dark:border-slate-800/50 bg-white/5 dark:bg-slate-900/20'
                             }`}
@@ -390,7 +424,7 @@ const Skills: React.FC = () => {
                           {/* Interactive Background Gradient */}
                           <div
                             className="absolute inset-0 opacity-0 group-hover:opacity-10 dark:group-hover:opacity-20 transition-opacity duration-500"
-                            style={{ backgroundImage: `radial-gradient(circle at center, ${colorSchemes[activeIndex].primary}, transparent 70%)` }}
+                            style={{ backgroundImage: `radial-gradient(circle at center, ${currentScheme.primary}, transparent 70%)` }}
                           />
 
                           {/* Card Content */}
@@ -400,8 +434,8 @@ const Skills: React.FC = () => {
                                 <div className={`w-3 h-3 rounded-full shadow-[0_0_10px_rgba(0,0,0,0.1)] transition-all duration-500 ${hoveredSkill === skill ? 'scale-125' : 'scale-100'
                                   }`}
                                   style={{
-                                    backgroundColor: colorSchemes[activeIndex].primary,
-                                    boxShadow: hoveredSkill === skill ? `0 0 15px ${colorSchemes[activeIndex].primary}` : 'none'
+                                    backgroundColor: currentScheme.primary,
+                                    boxShadow: hoveredSkill === skill ? `0 0 15px ${currentScheme.primary}` : 'none'
                                   }}
                                 />
                               </div>
@@ -414,7 +448,7 @@ const Skills: React.FC = () => {
                             <motion.div
                               animate={{ x: hoveredSkill === skill ? 0 : -10, opacity: hoveredSkill === skill ? 1 : 0 }}
                               className="text-xs font-mono font-bold uppercase tracking-widest"
-                              style={{ color: colorSchemes[activeIndex].primary }}
+                              style={{ color: currentScheme.primary }}
                             >
                               Ready
                             </motion.div>
@@ -427,7 +461,7 @@ const Skills: React.FC = () => {
                               initial={{ x: '-100%' }}
                               animate={hoveredSkill === skill ? { x: '100%' } : { x: '-100%' }}
                               transition={{ duration: 0.8, ease: "easeInOut" }}
-                              style={{ background: `linear-gradient(90deg, transparent, ${colorSchemes[activeIndex].primary}, transparent)` }}
+                              style={{ background: `linear-gradient(90deg, transparent, ${currentScheme.primary}, transparent)` }}
                             />
                           </div>
                         </motion.div>
@@ -469,7 +503,7 @@ const Skills: React.FC = () => {
                           }`}
                         style={{
                           backgroundColor: activeIndex === idx
-                            ? colorSchemes[idx].primary
+                            ? getColorScheme(idx).primary
                             : 'rgba(148, 163, 184, 0.3)'
                         }}
                       />

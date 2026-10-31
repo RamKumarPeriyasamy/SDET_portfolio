@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Coffee, Bug, Zap, Command } from 'lucide-react';
+import { Coffee, Bug, BookOpen, Wrench } from 'lucide-react';
 import profileImage from './assert/ram_port.png';
 
 const PersonalSide: React.FC = () => {
@@ -99,21 +99,21 @@ const PersonalSide: React.FC = () => {
 
                 <div className="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-start gap-3 hover:border-blue-500/50 transition-colors">
                   <div className="p-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg">
-                    <Command size={20} />
+                    <BookOpen size={20} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900 dark:text-white text-sm">Tech Stack</h4>
-                    <p className="text-xs text-slate-500">MacBook Pro + Mechanical Keyboard (Clicky).</p>
+                    <h4 className="font-bold text-slate-900 dark:text-white text-sm">Growth Engine</h4>
+                    <p className="text-xs text-slate-500">Always learning, experimenting, and upgrading my engineering skills.</p>
                   </div>
                 </div>
 
                 <div className="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-start gap-3 hover:border-rose-500/50 transition-colors">
                   <div className="p-2 bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 rounded-lg">
-                    <Zap size={20} />
+                    <Wrench size={20} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900 dark:text-white text-sm">Superpower</h4>
-                    <p className="text-xs text-slate-500">Can spot a missing semicolon from 10 feet away.</p>
+                    <h4 className="font-bold text-slate-900 dark:text-white text-sm">Root Cause Hunter</h4>
+                    <p className="text-xs text-slate-500">Digging deeper, fixing the real problem, and making systems more reliable.</p>
                   </div>
                 </div>
               </div>

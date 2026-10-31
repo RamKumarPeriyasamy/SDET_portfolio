@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Shield } from 'lucide-react';
 import { NAV_LINKS } from '../../constants';
 import ThemeToggle from './ThemeToggle';
+import logoImg from '../assert/logo.png';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,12 +44,12 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-6 flex justify-between items-center">
 
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 group" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
-          <div className="flex items-center justify-center p-2 rounded-lg bg-slate-900 dark:bg-slate-800 border-2 border-emerald-500/50 hover:border-emerald-500 transition-colors mr-2 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.5)]">
-            <span className="font-mono font-bold text-lg text-emerald-500 tracking-tighter">
-              RP<span className="animate-pulse">_</span>
-            </span>
-          </div>
+        <a href="#" className="flex items-center gap-2 group cursor-pointer" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
+          <img
+            src={logoImg}
+            alt="Ram Kumar Logo"
+            className="w-10 h-10 sm:w-12 sm:h-12 object-contain filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] transition-transform duration-300 group-hover:scale-110"
+          />
           <span className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
             Ram<span className="text-emerald-500">.SDET</span>
           </span>

@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { TIMELINE } from '../constants';
-import { Shield, Code, Rocket, Terminal, ChevronRight } from 'lucide-react';
+import { Shield, Code, Rocket, Terminal, ChevronRight, Workflow, Server, Activity } from 'lucide-react';
 
-const icons = {
+const icons: Record<string, any> = {
   shield: Shield,
   code: Code,
   rocket: Rocket,
-  test: Terminal
+  test: Terminal,
+  workflow: Workflow,
+  server: Server,
+  monitor: Activity,
 };
 
 const Experience: React.FC = () => {
@@ -137,13 +140,13 @@ const Experience: React.FC = () => {
             variants={containerVariants}
           >
             {TIMELINE.map((event, index) => {
-              const Icon = icons[event.icon];
+              const Icon = icons[event.icon] || icons.test;
               const isEven = index % 2 === 0;
               const isHovered = hoveredIndex === index;
 
               return (
                 <motion.div
-                  key={event.year}
+                  key={`${event.role}-${index}`}
                   className={`relative flex flex-col md:flex-row items-start md:items-center gap-8 ${isEven ? '' : 'md:flex-row-reverse'}`}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}

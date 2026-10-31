@@ -277,7 +277,7 @@ docker system prune -f
 - **Role:** SDET, DevOps & SecOps Engineer
 - **Email:** [amosrajkumar1803@gmail.com](mailto:amosrajkumar1803@gmail.com)
 - **WhatsApp:** [+91 90800 67941](https://wa.me/919080067941)
-- **LinkedIn:** [linkedin.com/in/ramkumar-periyasamy](https://www.linkedin.com/in/ramkumar-periyasamy)
+- **LinkedIn:** [linkedin.com/in/ramkumar-periyasamy](https://www.linkedin.com/in/ramkumarperiyasamysdet/)
 - **GitHub:** [github.com/RamKumarPeriyasamy](https://github.com/RamKumarPeriyasamy)
 
 ---

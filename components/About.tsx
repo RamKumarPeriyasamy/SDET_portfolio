@@ -43,13 +43,13 @@ const About: React.FC = () => {
               </motion.h3>
               <motion.div variants={itemVariants} className="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed">
                 <p>
-                  In a world where deployment cycles are measured in minutes, traditional QA is a bottleneck and reactive security is a liability. I represent the evolution of engineering assurance.
+                  As an <strong className="text-slate-900 dark:text-white">SDET, DevOps & DevSecOps Engineer</strong>, I bridge continuous test automation, secure pipeline engineering, and resilient cloud infrastructure operations.
                 </p>
                 <p>
-                  My engineering philosophy is simple: <strong className="text-slate-900 dark:text-white">Quality and Security are not phases; they are attributes of the code itself.</strong> By integrating robust automated testing frameworks and security gates directly into the CI/CD pipeline, I ensure that bugs and vulnerabilities are caught before they ever leave the developer's machine.
+                  My engineering philosophy is grounded in the shift-left mindset: <strong className="text-slate-900 dark:text-white">Test Automation, CI/CD Pipeline Engineering, and Security Automation</strong> are embedded into code from the first commit. By integrating automated UI and API frameworks with Selenium and Playwright, and automated security gates with SonarQube, Trivy, Gitleaks, and OWASP, quality and compliance are verified continuously.
                 </p>
                 <p>
-                  I don't just find problems. I build the systems that prevent them. Whether it's architecting a self-healing Selenium grid or implementing a secrets detection scanner in a Jenkins pipeline, my goal is to empower developers to ship faster, safely.
+                  Beyond automation, I specialize in <strong className="text-slate-900 dark:text-white">Infrastructure Management and Monitoring & Observability</strong>. From containerized Docker and Kubernetes environments on Proxmox VE and Linux/Ubuntu servers to real-time telemetry with Prometheus, Grafana, and Loki, I build resilient systems designed for automated delivery and high operational stability.
                 </p>
               </motion.div>
             </motion.div>
@@ -68,7 +68,7 @@ const About: React.FC = () => {
             >
               <Search className="w-8 h-8 text-blue-500 mb-4" />
               <h4 className="font-bold text-lg mb-2 dark:text-white">Quality Engineer</h4>
-              <p className="text-sm text-slate-500 dark:text-slate-400">Obsessed with edge cases, user flows, and breaking things intelligently.</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400">Architecting end-to-end UI, API, and performance test automation using Playwright, Selenium, TestNG, Postman, and Apache JMeter.</p>
             </motion.div>
 
             <motion.div 
@@ -77,7 +77,7 @@ const About: React.FC = () => {
             >
               <Lock className="w-8 h-8 text-violet-500 mb-4" />
               <h4 className="font-bold text-lg mb-2 dark:text-white">Security Advocate</h4>
-              <p className="text-sm text-slate-500 dark:text-slate-400">Embedding security checks (SAST/DAST) into every commit.</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400">Embedding automated SAST, container vulnerability scanning with Trivy, secret detection with Gitleaks, and OWASP compliance gates.</p>
             </motion.div>
 
             <motion.div 
@@ -86,7 +86,7 @@ const About: React.FC = () => {
             >
               <GitBranch className="w-8 h-8 text-emerald-500 mb-4" />
               <h4 className="font-bold text-lg mb-2 dark:text-white">Pipeline Architect</h4>
-              <p className="text-sm text-slate-500 dark:text-slate-400">Orchestrating the flow of code from local env to production with zero friction.</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400">Orchestrating Jenkins CI/CD pipelines, Docker containerization, Proxmox/Linux infrastructure, and Prometheus & Grafana observability.</p>
             </motion.div>
           </motion.div>
 

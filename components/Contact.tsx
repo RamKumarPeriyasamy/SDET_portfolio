@@ -73,9 +73,15 @@ const Contact: React.FC = () => {
                 </h3>
                 <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">Detailed breakdown of skills, certifications & experience.</p>
               </div>
-              <button className="px-6 py-3 rounded-xl bg-slate-900 dark:bg-slate-700 text-white hover:bg-emerald-500 dark:hover:bg-white dark:hover:text-slate-900 transition-all font-bold text-sm shadow-lg shadow-slate-900/10 dark:shadow-none">
+              <a
+                href="/Ramkumar_Resume.pdf"
+                download="Ramkumar_P_QA_Engineer_SDET.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 rounded-xl bg-slate-900 dark:bg-slate-700 text-white hover:bg-emerald-500 dark:hover:bg-white dark:hover:text-slate-900 transition-all font-bold text-sm shadow-lg shadow-slate-900/10 dark:shadow-none inline-flex items-center gap-2 cursor-pointer"
+              >
                 Download PDF
-              </button>
+              </a>
             </div>
           </div>
 

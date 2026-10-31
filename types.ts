@@ -28,5 +28,5 @@ export interface TimelineEvent {
   role: string;
   company?: string;
   description: string;
-  icon: 'test' | 'code' | 'shield' | 'rocket';
+  icon: 'test' | 'code' | 'shield' | 'rocket' | 'workflow' | 'server' | 'monitor';
 }
